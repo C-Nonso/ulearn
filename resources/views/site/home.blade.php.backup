@@ -15,8 +15,10 @@
         <!-- banner end -->
 
         <?php 
-            // Show only Latest Courses - removed Free and Discount tabs
-            $tabs = array('latestTab' => 'Latest Courses');
+            $tabs = array('latestTab' => 'Latest Courses',
+                          'freeTab' => 'Free Courses',
+                          'discountTab' => 'Discount Courses',
+                        );
         ?>
         <nav class="clearfix secondary-nav seperator-head">
             <ul class="secondary-nav-ul list mx-auto nav">
@@ -53,8 +55,8 @@
                                 <footer>
                                     <div class="c-row">
                                         <div class="col-md-6 col-sm-6 col-6">
-                                            <!-- All courses are FREE for church association -->
-                                            <h5 class="course-price">FREE</h5>
+                                            @php $course_price = $course->price ? config('config.default_currency').$course->price : 'Free'; @endphp
+                                            <h5 class="course-price">{{  $course_price }}&nbsp;<s>{{ $course->strike_out_price ? $course->strike_out_price : '' }}</s></h5>
                                         </div>
                                         <div class="col-md-5 offset-md-1 col-sm-5 offset-sm-1 col-5 offset-1">
                                             <star class="course-rating">
@@ -95,6 +97,37 @@
             </div>
         </article>
         <!-- dummy block end -->
+
+        <!-- instructor block start -->
+        <article class="instructor-block">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center seperator-head mt-3">
+                        <h3>Our Instructors</h3>
+                        <p class="mt-3">{{ Sitehelpers::get_option('pageHome', 'instructor_text') }}</p>
+                    </div>
+                </div>
+                
+                <div class="row mt-4 mb-5">
+                    @foreach ($instructors as $instructor) 
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                        <div class="instructor-box mx-auto text-center">
+                        <a href="{{ route('instructor.view', $instructor->instructor_slug) }}">
+                            <main>
+                                <img src="@if(Storage::exists($instructor->instructor_image)){{ Storage::url($instructor->instructor_image) }}@else{{ asset('backend/assets/images/course_detail_thumb.jpg') }}@endif">
+                                <div class="col-md-12">
+                                    <h6 class="instructor-title">{{ $instructor->first_name.' '.$instructor->last_name }}</h6>
+                                    <p>{!! mb_strimwidth($instructor->biography, 0, 120, ".....") !!}</p>
+                                </div>
+                            </main>
+                        </a>
+                        </div>
+                    </div>
+                @endforeach
+                </div>
+            </div>
+        </article>
+        <!-- instructor block end -->
 
     </div>
     <!-- content end -->

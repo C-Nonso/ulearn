@@ -220,7 +220,7 @@ nav.secondary-nav ul li a.active{color:#14bef0;font-weight:bold;}
 
 .homepage-slide-blue {
     color: #fff;
-    background-color: #3d3d3d;
+    background-color: #28328c;
     height: 300px;
     position: relative;
     text-align: center;
@@ -236,7 +236,7 @@ nav.secondary-nav ul li a.active{color:#14bef0;font-weight:bold;}
 
 .homepage-slide-blue .searchbox-contrainer{line-height:50px;padding:0 0 0 20px;margin-top:40px;}
 .homepage-slide-blue .searchbox-contrainer .searchbox{width:70%;height:50px;border:none;padding-left:20px;border-radius:2px;}
-.homepage-slide-blue .searchbox-contrainer .searchbox-submit{height:50px;width:80px;font-size:13px;line-height:50px;color:#fff;text-align:center;border-left:1px solid #3d3d3d;background-color:#14bef0;cursor:pointer;border-radius:2px;}
+.homepage-slide-blue .searchbox-contrainer .searchbox-submit{height:50px;width:80px;font-size:13px;line-height:50px;color:#fff;text-align:center;border-left:1px solid #28328c;background-color:#14bef0;cursor:pointer;border-radius:2px;}
 .pos-relative{position:relative;}
 
 .searchbox-submit i{font-size: 20px;}
@@ -356,7 +356,7 @@ footer .c-row{
     margin-top: 40px;
 }
 #main-footer{
-    background-color: #3d3d3d;
+    background-color: #28328c;
     min-height: 125px;
     margin-top: 80px;
 }
@@ -378,7 +378,7 @@ footer .c-row{
 
 .subpage-slide-blue {
     color: #fff;
-    background-color: #3d3d3d;
+    background-color: #28328c;
     height: 150px;
     position: relative;
 }
